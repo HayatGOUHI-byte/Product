@@ -15,15 +15,15 @@ class ProduitListView(ListView):
 
 
 #ajouter un produit
-class ProduitCreateView(createView):
+class ProduitCreateView(CreateView):
 	model = Produit 
 	template_name = 'produit_form.html'
-	fileds = ['nom','prix']
-	sucess_url = reverse_lazy('produit-list')
+	fields = ['nom','prix']
+	success_url = reverse_lazy('produit-list')
 
 
 #supprimer un produit
-class ProduitDeleteView(DelteView):
+class ProduitDeleteView(DeleteView):
 	model = Produit 
 	template_name = 'produit_confirm_delete.html'
 	success_url = reverse_lazy('produit-list')
@@ -34,3 +34,13 @@ class ProduitDetailView(DetailView):
 	model = Produit
 	template_name ='produit_detail.html'
 	context_object_name = 'produit'
+
+
+#Update 
+
+
+class ProduitUpdateView(UpdateView):
+	model = Produit
+	template_name = 'produit_form.html'
+	fields = ['nom', 'prix']
+	success_url = reverse_lazy('produit-list')
