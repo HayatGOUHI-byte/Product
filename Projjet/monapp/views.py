@@ -36,7 +36,15 @@ class ProduitDetailView(DetailView):
 	context_object_name = 'produit'
 
 
-#Update 
+#Update un produit
+
+
+class ProduitUpdateView(UpdateView):
+	model = Produit
+	template_name = 'produit_form.html'
+	fields = ['nom', 'prix']
+	success_url = reverse_lazy('produit-list')
+
 
 
 class ProduitUpdateView(UpdateView):
