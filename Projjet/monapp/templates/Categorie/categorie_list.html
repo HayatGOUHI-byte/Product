@@ -10,10 +10,11 @@
 
 <li>
 	{{categorie.nom}} - {{categorie.description}}
-	<a href="{% url 'categorie-detail' categorie.id %}">
+	<a href="{% url 'categorie-detail' categorie.id %}">Détails </a>
+	<a href="{% url 'categorie-update' categorie.id %}">Modifier</a>
+	<a href="{% url 'categorie-delete' categorie.id %}">Supprimer</a>
+
 </li>
 {% endfor %}
-
-
 </ul>
 {% endblock %}

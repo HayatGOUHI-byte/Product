@@ -45,4 +45,13 @@ class ProduitUpdateView(UpdateView):
 	fields = ['nom', 'prix']
 	success_url = reverse_lazy('produit-list')
 
+#Catégorie ********************
+
+
+class CategorieListView(ListView):
+	model = Categorie
+	template_name = 'catgeorie_list.html'
+	context_object_name = 'categories'
+
+
 
