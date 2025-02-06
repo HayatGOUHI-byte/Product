@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>La liste des catégories</h1>
+
+
+
+<ul>
+{% for categorie in categories %}
+
+<li>
+	{{categorie.nom}} - {{categorie.description}}
+	<a href="{% url 'categorie-detail' categorie.id %}">
+</li>
+{% endfor %}
+
+
+</ul>
+{% endblock %}
