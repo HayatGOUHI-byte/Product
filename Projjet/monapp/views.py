@@ -1,9 +1,13 @@
 from django.shortcuts import render
+from .forms import ProduitForm
+
 
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from django.urls import reverse_lazy
 
 from.models import Produit
+from .models import Categorie
+from django import forms
 
 
 #Afficher tous les produits
@@ -14,15 +18,13 @@ class ProduitListView(ListView):
 	context_object_name = 'produits'
 
 
-#ajouter un produit
 class ProduitCreateView(CreateView):
-	model = Produit 
-	template_name = 'produit_form.html'
-	fields = ['nom','prix']
-	success_url = reverse_lazy('produit-list')
+    model = Produit
+    form_class = ProduitForm  # Utiliser le formulaire personnalisé
+    template_name = 'produit_form.html'  # Le template pour le formulaire
+    success_url = reverse_lazy('produit-list')  
 
 
-#supprimer un produit
 class ProduitDeleteView(DeleteView):
 	model = Produit 
 	template_name = 'produit_confirm_delete.html'
@@ -34,24 +36,40 @@ class ProduitDetailView(DetailView):
 	model = Produit
 	template_name ='produit_detail.html'
 	context_object_name = 'produit'
-
-
 #Update un produit
-
 
 class ProduitUpdateView(UpdateView):
 	model = Produit
+	form_class = ProduitForm
 	template_name = 'produit_form.html'
-	fields = ['nom', 'prix']
+	# fields = ['nom', 'prix']
 	success_url = reverse_lazy('produit-list')
 
 #Catégorie ********************
+class CategorieCreateView(CreateView):
+	model = Categorie
+	template_name = 'categorie_form.html'
+	fields = ['nom','description']
+	success_url = reverse_lazy('categorie-list')
 
 
 class CategorieListView(ListView):
 	model = Categorie
-	template_name = 'catgeorie_list.html'
+	template_name = 'Categorie/categorie_list.html'
 	context_object_name = 'categories'
 
+class CategorieDetailView(DetailView):
+	model = Categorie
+	template_name = 'Categorie/categorie_detail.html'
+	context_object_name = 'categorie' 
 
+class CategorieDeleteView(DeleteView):
+	model = Categorie
+	template_name = 'Categorie/categorie_confirm_delete.html'
+
+class CategorieUpdateView(UpdateView):
+	model = Categorie
+	template_name = 'Categorie/categorie_form.html'
+	fields = ['nom','description']
+	success_url = reverse_lazy('categorie-list')
 

@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Supprimer le produit</h1>
-<p>Etes-vous sûr de vouloir supprimer "{{ object }}" de la categorie {{object.categorie.nom}} ?</p>
+<h1>Supprimer la catégorie</h1>
+<p>Etes-vous sûr de vouloir supprimer "{{ object }}" ?</p>
 
 <form method="post">
 	{% csrf_token %}

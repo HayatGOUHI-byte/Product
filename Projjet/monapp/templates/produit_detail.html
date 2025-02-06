@@ -4,5 +4,6 @@
 <p>Nom: {{ produit.nom }}</p>
 <p>Prix : {{ produit.prix }}</p>
 <p> Date d'ajout : {{ produit.date_ajout }} </p>
+<p>Catégorie : {{ produit.categorie.nom }}</p>  <!-- Affiche la catégorie -->
 <a href="{% url 'produit-list' %}"> Retour </a>
 {% endblock %}

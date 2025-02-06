@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+<p1>{{categorie.nom}}</p1>
+<p1>{{categorie.description}}</p1>
+<a href="{% url 'categorie-detail' categorie.id %}">Retour</a>
+{% endblock %}
