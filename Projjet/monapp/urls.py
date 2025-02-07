@@ -29,6 +29,6 @@ path('Categorie/categorie/<int:pk>/', CategorieDetailView.as_view(), name='categ
 path('Categorie/categorie/ajouter/', CategorieCreateView.as_view(), name='categorie-create'),
 path('Categorie/categorie/<int:pk>/modifier/', CategorieUpdateView.as_view(), name='categorie-update'),
 path('Categorie/categorie/<int:pk>/supprimer/',CategorieDeleteView.as_view(), name='categorie-delete'),
-path('Categorie/<int:pk>/', DisplaySpecificCategorie, name='specific-categorie'),
+path('Categorie/<int:pk>/', DisplaySpecificCategorie.as_view(), name='specific-categorie'),
 
 ]
