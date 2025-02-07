@@ -80,9 +80,6 @@ class DisplaySpecificCategorie():
 
 
 
-
-
-def DisplaySpecificCategorie(DetailView):
-	model = Categorie
-	template_name = 'Categorie/Specific_Categorie.html'
-	
+def DisplaySpecificCategorie(request, pk):
+	categorie  = get_object_or_404(Categorie, pk=pk)
+	return render(request,'Categorie/Specific_Categorie.html', {'categorie':categorie})
