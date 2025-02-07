@@ -13,6 +13,8 @@ from .views import(
 	CategorieUpdateView,
 	CategorieCreateView,
 	DisplaySpecificCategorie,
+	NumberInstanceCategorie,
+	ReturnCategories,
 	)
 
 
@@ -24,11 +26,12 @@ path('produit/ajouter/', ProduitCreateView.as_view(), name='produit-create'),
 path('produit/<int:pk>/modifier/', ProduitUpdateView.as_view(), name='produit-update'),
 path('produit/<int:pk>/supprimer/',ProduitDeleteView.as_view(), name='produit-delete'),
 path('Categorie/',CategorieListView.as_view(), name='categorie-list'),
-
 path('Categorie/categorie/<int:pk>/', CategorieDetailView.as_view(), name='categorie-detail'),
 path('Categorie/categorie/ajouter/', CategorieCreateView.as_view(), name='categorie-create'),
 path('Categorie/categorie/<int:pk>/modifier/', CategorieUpdateView.as_view(), name='categorie-update'),
 path('Categorie/categorie/<int:pk>/supprimer/',CategorieDeleteView.as_view(), name='categorie-delete'),
 path('Categorie/<int:pk>/', DisplaySpecificCategorie, name='specific-categorie'),
+path('Categorie/count/',NumberInstanceCategorie, name='nombreInstanceCategorie'),
+path('Categorie/CountCategories/',ReturnCategories,  name='returnCategories')
 
 ]

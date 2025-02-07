@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<ul>
+	{% for cat in categories %}
+
+	<li>{{cat.nom}}</li>
+	<a href="{% url 'categorie-detail' cat.id %}"> Détails </a>
+	{% endfor %}
+</ul>
+
+{% endblock %}

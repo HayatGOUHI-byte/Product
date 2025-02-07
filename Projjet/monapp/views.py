@@ -83,3 +83,18 @@ class DisplaySpecificCategorie():
 def DisplaySpecificCategorie(request, pk):
 	categorie  = get_object_or_404(Categorie, pk=pk)
 	return render(request,'Categorie/Specific_Categorie.html', {'categorie':categorie})
+
+
+
+def NumberInstanceCategorie(request):
+	number = Categorie.objects.count()
+	v = 15
+	if number > 1000:
+		return render(request,'Categorie/index.html',{'nombre':number,'valeur':v})
+	else:
+		return render(request,'Categorie/index.html')
+
+def ReturnCategories(request):
+	categories = Categorie.objects.all()  
+	return render(request,'Categorie/AllCategories.html',{'categories' :categories})
+	
