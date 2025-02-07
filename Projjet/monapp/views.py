@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .forms import ProduitForm
 
 
@@ -73,3 +73,15 @@ class CategorieUpdateView(UpdateView):
 	fields = ['nom','description']
 	success_url = reverse_lazy('categorie-list')
 
+class DisplaySpecificCategorie():
+	model = Categorie
+	template_name= 'Specific_Categorie.html'
+	context_object_name = 'categorie'
+
+
+
+
+
+def DisplaySpecificCategorie(request, pk):
+	categorie  = get_object_or_404(Categorie, pk=pk)
+	return render(request,'Categorie/Specific_Categorie.html')
