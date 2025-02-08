@@ -1,15 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 from .forms import ProduitForm
 
-
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from django.urls import reverse_lazy
 
 from.models import Produit
 from .models import Categorie
 from django import forms
-
-
 #Afficher tous les produits
 
 class ProduitListView(ListView):
@@ -17,13 +14,11 @@ class ProduitListView(ListView):
 	template_name = 'produit_list.html'
 	context_object_name = 'produits'
 
-
 class ProduitCreateView(CreateView):
     model = Produit
     form_class = ProduitForm  # Utiliser le formulaire personnalisé
     template_name = 'produit_form.html'  # Le template pour le formulaire
     success_url = reverse_lazy('produit-list')  
-
 
 class ProduitDeleteView(DeleteView):
 	model = Produit 
@@ -78,13 +73,9 @@ class DisplaySpecificCategorie():
 	template_name= 'Specific_Categorie.html'
 	context_object_name = 'categorie'
 
-
-
 def DisplaySpecificCategorie(request, pk):
 	categorie  = get_object_or_404(Categorie, pk=pk)
 	return render(request,'Categorie/Specific_Categorie.html', {'categorie':categorie})
-
-
 
 def NumberInstanceCategorie(request):
 	number = Categorie.objects.count()
@@ -102,4 +93,26 @@ def ReturnCategories(request):
 def ReturnProducts(request):
 	products = Produit.objects.all()
 	return render(request, 'Product/AllProducts.html', {'products':products})
+
+#***********FindByName************
+def FindByName(request):
+	produit = Produit.objects.get(nom="Lenovo")
+	return render(request,'Product/FindByName.html',{'produit':produit})
+
+def ProductsByCategorie(request):
+	categorie = Categorie.objects.get(nom="Electronique")
+	produits = Produit.objects.filter(categorie=categorie)
+	return render(request,'Categorie/ProductsByCategorie.html', {'produits':produits,'categorie':categorie})
 	
+def OrderByPrice(request):
+	produitsOrderByPrice  = Produit.objects.all().order_by('prix')
+	return render(request,'Product/OrderByPrice.html', {'produitsOrderByPrice':produitsOrderByPrice})
+
+def OrderByPriceA(request):
+	produitsOrderByPriceA = Produit.objects.all().order_by('-prix')
+	return render(request, 'Product/OrderByPriceA.html', {'produitsOrderByPriceA': produitsOrderByPriceA})
+
+
+def CompterProduits(request):
+	TousLesCategories = Categorie.objects.all()
+	return render(request,'Product/CompterProduits.html', {'TousLesCategories':TousLesCategories})

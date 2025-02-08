@@ -16,6 +16,9 @@ from .views import(
 	NumberInstanceCategorie,
 	ReturnCategories,
 	ReturnProducts,
+	FindByName,
+	ProductsByCategorie,
+	OrderByPrice, OrderByPriceA,CompterProduits,
 	)
 
 
@@ -35,5 +38,9 @@ path('Categorie/<int:pk>/', DisplaySpecificCategorie, name='specific-categorie')
 path('Categorie/count/',NumberInstanceCategorie, name='nombreInstanceCategorie'),
 path('Categorie/CountCategories/',ReturnCategories,  name='returnCategories'),
 path('Product/AllProducts/', ReturnProducts, name='returnProducts'),
-
+path('Product/FindByName/', FindByName, name='FindByName'),
+path('Categorie/ProductsByCategorie', ProductsByCategorie, name='ProductsByCategorie'),
+path('Product/OrderByPrice', OrderByPrice, name='OrderByPrice'),
+path('Product/OrderByPriceA', OrderByPriceA, name='OrderByPriceA'),
+path('Product/CompterProduits', CompterProduits, name='CompterProduits'),
 ]
