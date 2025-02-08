@@ -97,4 +97,9 @@ def NumberInstanceCategorie(request):
 def ReturnCategories(request):
 	categories = Categorie.objects.all()  
 	return render(request,'Categorie/AllCategories.html',{'categories' :categories})
+
+
+def ReturnProducts(request):
+	products = Produit.objects.all()
+	return render(request, 'Product/AllProducts.html', {'products':products})
 	

@@ -15,6 +15,7 @@ from .views import(
 	DisplaySpecificCategorie,
 	NumberInstanceCategorie,
 	ReturnCategories,
+	ReturnProducts,
 	)
 
 
@@ -32,6 +33,7 @@ path('Categorie/categorie/<int:pk>/modifier/', CategorieUpdateView.as_view(), na
 path('Categorie/categorie/<int:pk>/supprimer/',CategorieDeleteView.as_view(), name='categorie-delete'),
 path('Categorie/<int:pk>/', DisplaySpecificCategorie, name='specific-categorie'),
 path('Categorie/count/',NumberInstanceCategorie, name='nombreInstanceCategorie'),
-path('Categorie/CountCategories/',ReturnCategories,  name='returnCategories')
+path('Categorie/CountCategories/',ReturnCategories,  name='returnCategories'),
+path('Product/AllProducts/', ReturnProducts, name='returnProducts'),
 
 ]

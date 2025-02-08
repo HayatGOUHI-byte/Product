@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<ul>
+{% for pro in products %}
+
+<li>{{pro.nom}} --> {{pro.categorie.nom}}</li>
+{% endfor %}
+</ul>
+{% endblock %}
