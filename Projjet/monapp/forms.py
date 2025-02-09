@@ -10,3 +10,13 @@ class ProduitForm(forms.ModelForm):
         empty_label="Sélectionnez une catégorie",
         widget=forms.Select(attrs={'class': 'form-select'})
     )
+
+
+#*****On crée le formulaire de la recherche de la catégorie par l'utilisateru puis  la recherche est lancée
+
+class RechercheCategorieForm(forms.Form):
+    nom_categorie = forms.CharField(
+        label="Nom de la catégorie",
+        max_length=100,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Entrez le nom de la catégorie'})
+    )

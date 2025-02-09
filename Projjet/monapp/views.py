@@ -8,6 +8,10 @@ from.models import Produit
 from .models import Categorie
 from django import forms
 #Afficher tous les produits
+from monapp.forms import RechercheCategorieForm
+
+
+
 class ProduitListView(ListView):
 	model = Produit
 	template_name = 'produit_list.html'
@@ -95,3 +99,34 @@ def CompterProduits(request):
 	categorie = Categorie.objects.get(nom="Electronique")
 	nombre_produits = Produit.objects.filter(categorie=categorie).count()
 	return render(request,'Product/CompterProduits.html', {'nombre_produits':nombre_produits})
+def ProductWithoutCategorie(request):
+	produits = Produit.objects.filter(categorie=None)
+	return render(request,'Product/ProductWithoutCategorie.html',{'produits':produits})
+
+
+
+
+
+
+def rechercher_produits_par_categorie(request):
+    produits = None  # Initialise à None pour éviter les erreurs avant la soumission du formulaire
+    message = ""
+    
+    # Crée une instance du formulaire
+    form = RechercheCategorieForm(request.POST or None)
+    
+    if request.method == 'POST':  # Si la requête est POST
+        if form.is_valid():
+            nom_categorie = form.cleaned_data['nom_categorie']
+            
+            # Rechercher les produits associés à la catégorie
+            produits = Produit.objects.filter(categorie__nom__icontains=nom_categorie)
+            if not produits.exists():
+                message = f"Aucun produit trouvé pour la catégorie '{nom_categorie}'."
+    
+    # Retourne toujours une réponse HTTP
+    return render(request, 'recherche_produits.html', {
+        'form': form,
+        'produits': produits,
+        'message': message
+    })

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Rechercher des Produits par Catégorie</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Rechercher</button>
+</form>
+
+{% if message %}
+    <p>{{ message }}</p>
+{% endif %}
+
+{% if produits %}
+    <h2>Produits trouvés :</h2>
+    <ul>
+        {% for produit in produits %}
+        <li>{{ produit.nom }} - {{ produit.prix }} $</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<a href="{% url 'categorie-list' %}">Retour à la liste des catégories</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<ul>
+	{% for i in produits %}
+	<h1>Voilàa les produits qui  n'ont pas de catégorie</h1>
+	<li>
+		{{i.nom}}
+	</li>
+	{% endfor %}
+</ul>
+{% endblock %}
