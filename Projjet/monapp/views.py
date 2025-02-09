@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 from .forms import ProduitForm
 
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
@@ -9,6 +10,7 @@ from .models import Categorie
 from django import forms
 #Afficher tous les produits
 from monapp.forms import RechercheCategorieForm
+
 
 
 
