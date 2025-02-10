@@ -32,10 +32,13 @@ class Client(models.Model):
 
 class Commande(models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='commandes')
-    produit = models.ForeignKay(Produit, on_delete=models.CASCADE, related_name='commandes')
-    date_commande = models.DateTime(auto_now_add=True)
+    produit = models.ForeignKey(Produit, on_delete=models.CASCADE, related_name='commandes')
+    date_commande = models.DateTimeField(auto_now_add=True)
     quantite = models.PositiveIntegerField()
 
+
+    class Meta:
+        unique_together = ('client','produit')
 
     def __str__(self):
         return f"Commande de {self.client.nom} - {self.produit.nom}"

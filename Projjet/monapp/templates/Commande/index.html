@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<ul>
+	{% for commande in commandes %}
+    <li>
+    Le numéro de la commande est le suivant : {{commande.id}}.
+    Cette commande est faite par le client {{commande.client.nom}}.
+    Avec le produit : {{commande.produit.nom}}.
+    La quantité ajoutée : {{commande.quantite}}.
+
+     La combinaison des identifiants est la suivante -> {{commande.client.id}} {{commande.produit.id}}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

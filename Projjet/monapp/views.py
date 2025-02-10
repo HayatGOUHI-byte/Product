@@ -8,6 +8,7 @@ from django.urls import reverse_lazy
 from.models import Produit
 from .models import Categorie
 from .models import Client
+from .models import Commande
 from django import forms
 #Afficher tous les produits
 from monapp.forms import RechercheCategorieForm
@@ -177,3 +178,34 @@ def contact(request):
 
     # Retourner le formulaire (vide ou avec des données validées) pour les requêtes GET et POST
     return render(request, 'contact.html', {'form': form})
+
+
+#ajouter une commande via la vue
+def ajouter_commande(request):
+	if request.method  == 'POST':
+		client_id = request.POST.get('client_id')
+		produit_id = request.POST.get('produit_id')
+		quantite = int(request.POST.get('quantite'))
+
+
+		client = get_object_or_404(Client, id=client_id)
+		produit = get_object_or_404(Produit, id=produit_id)
+
+		commande = Commande(client=client, produit=produit, quantite=quantite)
+		commande.save()
+		return render(request,'Categorie/commande_ajoutee.html', {'commande':commande})
+
+	clients = Client.objects.all()
+	produits = Produit.objects.all()
+
+	return render(request,'Categorie/commande_ajoutee.html', {'clients':clients, 'produits':produits})
+
+
+def liste_Commande(request):
+	commandes = Commande.objects.all()
+	return render(request, 'Commande/index.html', {'commandes':commandes})
+
+
+def delete_commande(request):
+	Commande.objects.all().delete()
+	return render(request,'Commande/index.html')

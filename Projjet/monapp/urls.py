@@ -16,10 +16,11 @@ from .views import(
 	NumberInstanceCategorie,
 	ReturnCategories,
 	ReturnProducts,
-	FindByName,
+	FindByName,ajouter_commande,
 	ProductsByCategorie,contact,
 	OrderByPrice, OrderByPriceA,CompterProduits,
 	ProductWithoutCategorie, rechercher_produits_par_categorie,liste_categories,
+	liste_Commande,delete_commande,
 	)
 
 
@@ -48,6 +49,11 @@ path('Product/ProductWithoutCategorie', ProductWithoutCategorie, name='ProductWi
 path('rechercher/', rechercher_produits_par_categorie, name='rechercher-produits-par-categorie'),
 path('categories/', liste_categories, name='liste_categories' ),
 path('contact/',contact, name='contact'),
+path('ajouter_commande',ajouter_commande, name='ajouter_commande'),
+
+
+path('liste_Commande', liste_Commande, name='liste-Commande'),
+path('delete_commande', delete_commande, name='delete_commande'),
 ]
 
 

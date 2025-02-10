@@ -1,0 +1,32 @@
+<html lang="fr">
+<head> 
+	<meta charset="UTF-8">
+	<title>Ajouter une commande</title>
+</head>
+
+<body>
+	<h1>Ajouter une commande</h1>
+	<form method="POST">
+		{% csrf_token %}
+		<label for="client">Client :</label>
+		<select name="client_id" id="client">
+			{% for client in clients%}
+			<option value="{{ client.id }}">{{ client.nom }}</option>
+			{% endfor %}
+		</select>
+
+	<label for="produit"> Produit :</label>
+	<select name="produit_id" id="produit">
+		{% for produit in produits %}
+<option value="{{ produit.id }}">{{produit.nom}}</option>
+		{% endfor%}
+	</select>
+
+
+<label for="quantite">Quantité :</label>
+<input type="number" name="quantite" id="quantite" min="1" required>
+<button type="submit">Ajouter</button>
+</form>
+</body>
+</html>
+
