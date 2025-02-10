@@ -28,3 +28,15 @@ class Client(models.Model):
     def __str__(self):
         return f"{self.nom} - {self.email}"
 
+#la création d'un modèle Commande qui regroupe les deux modèles client et produits c'est bon
+
+class Commande(models.Model):
+    client = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='commandes')
+    produit = models.ForeignKay(Produit, on_delete=models.CASCADE, related_name='commandes')
+    date_commande = models.DateTime(auto_now_add=True)
+    quantite = models.PositiveIntegerField()
+
+
+    def __str__(self):
+        return f"Commande de {self.client.nom} - {self.produit.nom}"
+
