@@ -10,6 +10,7 @@ from .models import Categorie
 from django import forms
 #Afficher tous les produits
 from monapp.forms import RechercheCategorieForm
+from monapp.forms import OrdreForm
 
 
 
@@ -101,6 +102,7 @@ def CompterProduits(request):
 	categorie = Categorie.objects.get(nom="Electronique")
 	nombre_produits = Produit.objects.filter(categorie=categorie).count()
 	return render(request,'Product/CompterProduits.html', {'nombre_produits':nombre_produits})
+
 def ProductWithoutCategorie(request):
 	produits = Produit.objects.filter(categorie=None)
 	return render(request,'Product/ProductWithoutCategorie.html',{'produits':produits})
@@ -132,3 +134,18 @@ def rechercher_produits_par_categorie(request):
         'produits': produits,
         'message': message
     })
+
+
+def liste_categories(request):
+	categories= Categorie.objects.all()
+	form = OrdreForm(request.POST or None)
+	if request.method == 'POST' and form.is_valid():
+		colonne = form.cleaned_data['colonne']
+		categories=categories.order_by(colonne)[:10]
+
+	context = {
+	'form' : form,
+	'categories':categories
+		}
+
+	return render(request,'Categorie/liste_categories.html',context)	

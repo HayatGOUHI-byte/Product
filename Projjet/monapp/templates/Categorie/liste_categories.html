@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Catégories</title>
+</head>
+<body>
+    <h1>Liste des Catégories</h1>
+
+    <!-- Formulaire pour trier -->
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="id_colonne">Trier par :</label>
+            {{ form.colonne }}
+        </div>
+        <button type="submit">Trier</button>
+    </form>
+
+    <!-- Tableau des catégories -->
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for categorie in categories %}
+                <tr>
+                    <td>{{ categorie.nom }}</td>
+                    <td>{{ categorie.description }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

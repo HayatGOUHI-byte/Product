@@ -20,3 +20,11 @@ class RechercheCategorieForm(forms.Form):
         max_length=100,
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Entrez le nom de la catégorie'})
     )
+
+
+class OrdreForm(forms.Form):
+    COLONNES = [ 
+    ('nom', 'Nom'),
+    ('description','Description'),
+    ]
+    colonne = forms.ChoiceField(choices=COLONNES, label="Trier Par")
