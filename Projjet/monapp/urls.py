@@ -17,7 +17,7 @@ from .views import(
 	ReturnCategories,
 	ReturnProducts,
 	FindByName,
-	ProductsByCategorie,
+	ProductsByCategorie,contact,
 	OrderByPrice, OrderByPriceA,CompterProduits,
 	ProductWithoutCategorie, rechercher_produits_par_categorie,liste_categories,
 	)
@@ -46,7 +46,8 @@ path('Product/OrderByPriceA', OrderByPriceA, name='OrderByPriceA'),
 path('Product/CompterProduits', CompterProduits, name='CompterProduits'),
 path('Product/ProductWithoutCategorie', ProductWithoutCategorie, name='ProductWithoutCategorie'),
 path('rechercher/', rechercher_produits_par_categorie, name='rechercher-produits-par-categorie'),
-path('categories/', liste_categories, name='liste_categories' )
+path('categories/', liste_categories, name='liste_categories' ),
+path('contact/',contact, name='contact'),
 ]
 
 

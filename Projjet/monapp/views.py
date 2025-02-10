@@ -7,10 +7,13 @@ from django.urls import reverse_lazy
 
 from.models import Produit
 from .models import Categorie
+from .models import Client
 from django import forms
 #Afficher tous les produits
 from monapp.forms import RechercheCategorieForm
 from monapp.forms import OrdreForm
+
+from monapp.forms import ContactForm
 
 
 
@@ -149,3 +152,28 @@ def liste_categories(request):
 		}
 
 	return render(request,'Categorie/liste_categories.html',context)	
+
+
+
+
+
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            nom = form.cleaned_data['nom']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+            # Faites quelque chose avec les données ici (par exemple envoyer un email)
+            client = Client(nom=nom, email=email, message = message)
+            client.save()
+
+            clients = Client.objects.all()
+            number = clients.count()
+            return render(request, 'contact.html', {'nom': nom,'email':email, 'message':message, 'clients':clients,'number':number})
+    else:
+        form = ContactForm()  # Créer un formulaire vide pour les requêtes GET
+
+    # Retourner le formulaire (vide ou avec des données validées) pour les requêtes GET et POST
+    return render(request, 'contact.html', {'form': form})

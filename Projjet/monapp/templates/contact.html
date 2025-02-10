@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+</head>
+<body>
+    <h1>Formulaire de Contact</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Génère le formulaire HTML -->
+        <button type="submit">Envoyer</button>
+    </form>
+
+
+{% if nom and email %}
+    <p>Voila les informations entrées par l'utilisateur sont affichées is</p>
+    {{nom}}
+    {{email}}
+    {{message}}
+{% endif %}
+
+  
+{% if clients %}
+  <p>Tous les clients diponibles dans la base de données sont affichées ici</p>
+  <ul>
+      {% for i in clients %}
+      <li>{{i.nom}} - > {{i.email}} </li>
+      Je veux dire : {{message}}
+      {% endfor %}
+  </ul>
+{% endif%}
+
+{{number}}
+</body>
+</html>

@@ -28,3 +28,11 @@ class OrdreForm(forms.Form):
     ('description','Description'),
     ]
     colonne = forms.ChoiceField(choices=COLONNES, label="Trier Par")
+
+#Contact form
+
+class ContactForm(forms.Form):
+    nom = forms.CharField(max_length=100,label = "Nom" )
+    email = forms.EmailField(label = "Email")
+    message = forms.CharField(widget=forms.Textarea, label="Message")
+
