@@ -18,12 +18,7 @@
             <td>{{ user.username }}</td>
             <td>{{ user.email }}</td>
             <td>
-                {% if request.user.is_admin %}
-                <form method="POST" action="{% url 'delete_user' user.id %}">
-                    {% csrf_token %}
-                    <button type="submit">Supprimer</button>
-                </form>
-                {% endif %}
+               <a href="{% url 'userdetail' user.username %}">détails</a>
             </td>
         </tr>
         {% endfor %}

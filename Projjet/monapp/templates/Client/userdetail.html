@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{{user.username}} -> {{user.email}}
+
+<p>Retour à la liste principale des utilisateurs.</p>
+<a href="{% url 'user_list' %}">Retour.</a>
+{{request}}
+{% endblock %}

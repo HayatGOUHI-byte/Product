@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
-from .forms import ProduitForm
+from .forms import ProduitForm,UserSearchForm
 
 
 from django.contrib.auth.hashers import make_password, check_password
@@ -260,3 +260,21 @@ def delete_user(request, user_id):
 def TousUtilisateur(request):
 	users = CustomerUser.objects.all()
 	return render(request,'Users/TousUtilisateur.html',{'users':users})
+
+#détails d'un utilisateur spécifique
+def userdetail(request, username):
+	user = get_object_or_404(CustomerUser, username=username)
+	return render(request,'Client/userdetail.html',{'user':user})
+
+
+
+def search_user(request):
+	form = UserSearchForm()
+	
+	if request.method == "POST":
+		form = UserSearchForm(request.POST)
+		if form.is_valid():
+			username = form.cleaned_data['username']
+			user = get_object_or_404(CustomerUser, username=username)
+			return render(request, 'Client/userdetail.html', {'user': user}) 
+	return render(request, 'Client/search_user.html', {'form': form}) 

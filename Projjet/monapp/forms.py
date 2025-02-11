@@ -36,3 +36,12 @@ class ContactForm(forms.Form):
     email = forms.EmailField(label = "Email")
     message = forms.CharField(widget=forms.Textarea, label="Message")
 
+
+class UserSearchForm(forms.Form):
+    username = forms.CharField(
+        max_length=150, 
+        label="Nom d'utilisateur", 
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Tapez un nom d\'utilisateur'})
+    )
+
+

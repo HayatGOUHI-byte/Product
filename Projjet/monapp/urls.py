@@ -19,8 +19,8 @@ from .views import(
 	FindByName,ajouter_commande,
 	ProductsByCategorie,contact,
 	OrderByPrice, OrderByPriceA,CompterProduits,
-	ProductWithoutCategorie, rechercher_produits_par_categorie,liste_categories,
-	liste_Commande,delete_commande,supprimer_commande,register,user_list,delete_user,TousUtilisateur,
+	ProductWithoutCategorie, rechercher_produits_par_categorie,liste_categories,search_user,
+	liste_Commande,delete_commande,supprimer_commande,register,user_list,delete_user,TousUtilisateur,userdetail,
 	)
 
 
@@ -62,6 +62,8 @@ path('delete_commande', delete_commande, name='delete_commande'),
 path('commandes/supprimer/<int:client_id>/<int:produit_id>/', supprimer_commande, name='supprimer_commande'),
 #Users***************************************
 path('Users/TousUtilisateur/', TousUtilisateur, name='TousUtilisateur'),
+path('Client/userdetail/<str:username>/', userdetail, name='userdetail'),
+path('search-user/', search_user, name='search_user'),
 ]
 
 
