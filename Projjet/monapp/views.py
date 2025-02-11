@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from .forms import ProduitForm
 
+
+from django.contrib.auth.hashers import make_password, check_password
+from django.http import HttpResponseForbidden
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from django.urls import reverse_lazy
 
@@ -9,12 +12,14 @@ from.models import Produit
 from .models import Categorie
 from .models import Client
 from .models import Commande
+from .models import CustomerUser
 from django import forms
 #Afficher tous les produits
 from monapp.forms import RechercheCategorieForm
 from monapp.forms import OrdreForm
 
 from monapp.forms import ContactForm
+from django.shortcuts import redirect
 
 
 
@@ -193,7 +198,8 @@ def ajouter_commande(request):
 
 		commande = Commande(client=client, produit=produit, quantite=quantite)
 		commande.save()
-		return render(request,'Categorie/commande_ajoutee.html', {'commande':commande})
+		commandes = Commande.objects.all()
+		return render(request,'Commande/index.html', {'commandes':commandes})
 
 	clients = Client.objects.all()
 	produits = Produit.objects.all()
@@ -209,3 +215,48 @@ def liste_Commande(request):
 def delete_commande(request):
 	Commande.objects.all().delete()
 	return render(request,'Commande/index.html')
+
+
+def supprimer_commande(request, client_id, produit_id):
+	commande = get_object_or_404(Commande, client_id=client_id, produit_id=produit_id)
+	commande.delete()
+	return redirect('liste-Commande')
+
+
+def register(request):
+	if request.method == "POST":
+		username= request.POST['username']
+		email = request.POST['email']
+		password = request.POST['password']
+
+
+		hashed_password = make_password(password)
+		user = CustomerUser.objects.create(username=username, email=email, password=hashed_password)
+		return redirect('user_list')
+	return render(request, 'Client/register.html')
+
+
+
+
+#Afficher la lsite des utilisateurs
+
+def user_list(request):
+	if not request.user.is_authenticated:
+		return HttpResponseForbidden("Vous devez êtes connecté")
+
+	users = CustomerUser.objects.all()
+	return render(request, 'Client/user_list.html', {'users': users})
+
+
+def delete_user(request, user_id):
+	if not request.user.is_authenticated or not request.user_is_admin:
+		return HttpResponseForbidden("Interdit")
+
+	user_to_delete = get_object_or_404(CustomerUser, id=user_id)
+	user_to_delete.delete()
+	return redirect('user_list')
+
+
+def TousUtilisateur(request):
+	users = CustomerUser.objects.all()
+	return render(request,'Users/TousUtilisateur.html',{'users':users})

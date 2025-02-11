@@ -43,3 +43,14 @@ class Commande(models.Model):
     def __str__(self):
         return f"Commande de {self.client.nom} - {self.produit.nom}"
 
+
+
+class CustomerUser(models.Model):
+    username = models.CharField(max_length=150, unique=True)
+    email = models.EmailField(unique=True)
+    password = models.CharField(max_length = 128)
+    is_admin = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.username
+

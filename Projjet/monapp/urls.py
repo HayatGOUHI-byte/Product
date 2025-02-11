@@ -20,7 +20,7 @@ from .views import(
 	ProductsByCategorie,contact,
 	OrderByPrice, OrderByPriceA,CompterProduits,
 	ProductWithoutCategorie, rechercher_produits_par_categorie,liste_categories,
-	liste_Commande,delete_commande,
+	liste_Commande,delete_commande,supprimer_commande,register,user_list,delete_user,TousUtilisateur,
 	)
 
 
@@ -50,10 +50,18 @@ path('rechercher/', rechercher_produits_par_categorie, name='rechercher-produits
 path('categories/', liste_categories, name='liste_categories' ),
 path('contact/',contact, name='contact'),
 path('ajouter_commande',ajouter_commande, name='ajouter_commande'),
+#client*****************
 
+path('register/',register, name="register"),
+path('users/', user_list, name='user_list'),
+path('delete_user/<int:user_id>/',delete_user, name='delete_user'),
 
+#commande****************
 path('liste_Commande', liste_Commande, name='liste-Commande'),
 path('delete_commande', delete_commande, name='delete_commande'),
+path('commandes/supprimer/<int:client_id>/<int:produit_id>/', supprimer_commande, name='supprimer_commande'),
+#Users***************************************
+path('Users/TousUtilisateur/', TousUtilisateur, name='TousUtilisateur'),
 ]
 
 

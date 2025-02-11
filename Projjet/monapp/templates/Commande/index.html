@@ -9,6 +9,7 @@
     La quantité ajoutée : {{commande.quantite}}.
 
      La combinaison des identifiants est la suivante -> {{commande.client.id}} {{commande.produit.id}}
+     <a href="{% url 'supprimer_commande' commande.client.id commande.produit.id %}">Supprimer</a>
     </li>
     {% endfor %}
 </ul>
