@@ -2,7 +2,7 @@ from django.urls import path
 
 
 from .views import(
-	ProduitListView,
+	ProduitListView,  choisir_produit,
 	ProduitCreateView,
 	ProduitUpdateView,
 	ProduitDeleteView,
@@ -64,6 +64,7 @@ path('commandes/supprimer/<int:client_id>/<int:produit_id>/', supprimer_commande
 path('Users/TousUtilisateur/', TousUtilisateur, name='TousUtilisateur'),
 path('Client/userdetail/<str:username>/', userdetail, name='userdetail'),
 path('search-user/', search_user, name='search_user'),
+ path('choisir_produit/<int:client_id>/', choisir_produit, name='choisir_produit'),
 ]
 
 

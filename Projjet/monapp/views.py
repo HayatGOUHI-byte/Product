@@ -278,3 +278,16 @@ def search_user(request):
 			user = get_object_or_404(CustomerUser, username=username)
 			return render(request, 'Client/userdetail.html', {'user': user}) 
 	return render(request, 'Client/search_user.html', {'form': form}) 
+
+
+def choisir_produit(request, client_id):
+	client = get_object_or_404(Client, id=client_id)
+
+	if request.method == 'POST':
+		produit_id = request.POST.get('produit')
+		produit = get_object_or_404(Produit, id = produit_id)
+		return redirect('choisir_produit', client_id=client.id)
+
+
+	produits = Produit.objects.all()
+	return render(request,'choisir_produit.html', {'clients':client, 'produits':produits})

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Choisir un produit</title>
+</head>
+<body>
+	<h1>Choisir un produit pour {{ client.nom }}</h1>
+
+	<form method="post">
+		{% csrf_token %}
+			<label for="produit">Choisissez un produit : </label>
+			<select name="produit" id="produit" required>
+				{% for produit in produits %}
+				<option value="{{ produit.id }}"> {{ produit.nom }} - {{produit.prix}} </option>
+				{%endfor%}
+			</select>
+			<button type="submit">Valider</button>
+		</form>
+
+		<a href="/">Retour à l'accueil </a>
+	</body>
+	</html>

@@ -24,9 +24,10 @@ class Client(models.Model):
     nom = models.CharField(max_length=100)
     email = models.EmailField()
     message = models.TextField()
+    produit_choisi = models.ForeignKey('Produit', on_delete=models.SET_NULL, null=True,  blank=True, related_name='clients' )
 
     def __str__(self):
-        return f"{self.nom} - {self.email}"
+        return f"{self.produit_choisi.nom} - > {self.produit_choisi.categorie.description}"
 
 #la création d'un modèle Commande qui regroupe les deux modèles client et produits c'est bon
 

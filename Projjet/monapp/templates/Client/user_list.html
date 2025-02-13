@@ -20,6 +20,7 @@
             <td>
                <a href="{% url 'userdetail' user.username %}">détails</a>
             </td>
+            <td><a href="{% url 'choisir_produit' user.id %}">Choisir un Produit</td>
         </tr>
         {% endfor %}
     </table>
