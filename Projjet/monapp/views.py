@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from .forms import ProduitForm,UserSearchForm
+from django.contrib import messages
 
 
 from django.contrib.auth.hashers import make_password, check_password
@@ -286,6 +287,9 @@ def choisir_produit(request, client_id):
 	if request.method == 'POST':
 		produit_id = request.POST.get('produit')
 		produit = get_object_or_404(Produit, id = produit_id)
+		client.produit_choisi = produit
+		client.save()
+		messages.success(request, f"{client.nom} a choisi le produit : {produit.nom}.")
 		return redirect('choisir_produit', client_id=client.id)
 
 

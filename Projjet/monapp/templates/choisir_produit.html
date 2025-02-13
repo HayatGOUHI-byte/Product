@@ -7,6 +7,12 @@
 </head>
 <body>
 	<h1>Choisir un produit pour {{ client.nom }}</h1>
+	 {% if messages %}
+        {% for message in messages %}
+            <p style="color: green;">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
 
 	<form method="post">
 		{% csrf_token %}
