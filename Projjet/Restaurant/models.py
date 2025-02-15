@@ -8,3 +8,7 @@ class Menu(models.Model):
 
 	def __str__(self):
 		return self.nom
+
+class Plat(models.Model):
+	menu = models.ForeignKey(Menu, related_name="plats", on_delete=models.CASCADE)
+	nom = models.CharField(max_length=10)
