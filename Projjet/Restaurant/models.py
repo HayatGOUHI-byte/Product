@@ -13,3 +13,4 @@ class Plat(models.Model):
 	menu = models.ForeignKey(Menu, related_name="plats", on_delete=models.CASCADE)
 	nom = models.CharField(max_length=10)
 	description = models.TextField()
+	prix = models.DecimalField(max_digits=6, decimal_places=2)
