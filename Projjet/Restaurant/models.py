@@ -21,3 +21,4 @@ class Plat(models.Model):
 
 class Client(models.Model):
 	nom = models.CharField(max_length=100)
+	email = models.EmailField(unique=True)
