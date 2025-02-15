@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu Restaurant</title>
+</head>
+<body>
+    <h1>Menus disponibles</h1>
+    <ul>
+        {% for menu in menus %}
+        <li>
+            <a href="{% url 'restaurant:menu_detail' menu.id%}">{{menu.nom}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+
+</body>
+</html>
