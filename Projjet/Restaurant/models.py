@@ -26,7 +26,7 @@ class Client(models.Model):
 	adresse = models.TextField()
 
 	def __str__(self):
-		return self.nom
+		return self.no
 
 class Commande(models.Model):
 	client = models.ForeignKey(Client, related_name="commandes", on_delete = models.CASCADE)
