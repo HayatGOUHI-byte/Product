@@ -17,3 +17,7 @@ class Plat(models.Model):
 
 	def __str__(self):
 		return self.nom
+
+
+class Client(models.Model):
+	nom = models.CharField(max_length=100)
