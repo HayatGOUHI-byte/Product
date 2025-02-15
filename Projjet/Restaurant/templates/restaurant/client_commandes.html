@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Commandes de {{ client.nom }}</title>
+</head>
+<body>
+    <h1>Commandes de {{ client.nom }}</h1>
+    <ul>
+        {% for commande in commandes %}
+            <li>
+                Commande #{{ commande.id }} - {{ commande.statut }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
