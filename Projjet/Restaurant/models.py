@@ -27,3 +27,12 @@ class Client(models.Model):
 
 	def __str__(self):
 		return self.nom
+
+class Commande(models.Model):
+	client = models.ForeignKey(Client, related_name="commandes", on_delete = models.CASCADE)
+	plat = models.ManyToManyField(Plat, related_name="commandes")
+	date_commande = models.DataTimeField(auto_now=True)
+	statut = models.CharField(max_length=50, default="En attente")
+
+	def __str__(self):
+		return f"commande {self.id} pour {self.client.nom}"
