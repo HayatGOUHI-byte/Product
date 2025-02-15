@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Passer Commande</title>
+</head>
+<body>
+    <h1>Passer une commande pour {{ plat.nom }}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="client_id" value="1"> <!-- Exemple client -->
+        <button type="submit">Passer la commande</button>
+    </form>
+</body>
+</html>
