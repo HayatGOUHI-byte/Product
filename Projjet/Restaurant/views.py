@@ -31,3 +31,11 @@ def passer_commande_view(request, plat_id):
         commande.save()
         return HttpResponse("Commande passée avec succès!")
     return render(request, 'restaurant/passer_commande.html', {'plat': plat})
+
+
+
+
+def client_commandes_view(request, client_id):
+	client = get_object_or_404(Client, id=client_id)
+	commandes = client.commandes.all()
+	return render(request, 'restaurant/client_commandes.html', {'client': client, 'commandes': commandes})
