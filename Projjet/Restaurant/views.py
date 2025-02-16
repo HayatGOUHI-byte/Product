@@ -39,3 +39,10 @@ def client_commandes_view(request, client_id):
 	client = get_object_or_404(Client, id=client_id)
 	commandes = client.commandes.all()
 	return render(request, 'restaurant/client_commandes.html', {'client': client, 'commandes': commandes})
+
+
+
+#Récupérer tous les menus disponibles
+def Menu_dispo(request):
+	menus = Menu.objects.filter(disponible=True)
+	return render(request,'restaurant/disponible.html',{'menus':menus})
