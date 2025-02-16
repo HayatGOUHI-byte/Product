@@ -1,9 +1,4 @@
 from django.db import models
-
-
-# Create your models here.
-
-
 class Menu(models.Model):
 	nom = models.CharField(max_length=100)
 	description = models.TextField()
@@ -20,7 +15,6 @@ class Plat(models.Model):
 
 	def __str__(self):
 		return self.nom
-
 
 class Client(models.Model):
 	nom = models.CharField(max_length=100)
