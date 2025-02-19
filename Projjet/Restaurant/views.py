@@ -46,3 +46,14 @@ def client_commandes_view(request, client_id):
 def Menu_dispo(request):
 	menus = Menu.objects.filter(disponible=True)
 	return render(request,'restaurant/disponible.html',{'menus':menus})
+
+
+
+def afficher_plat(request):
+	plats = Plat.objects.all()
+	menu_plat = None
+
+	if request.method=='POST':
+		plat_id = request.POST.get('plat')
+		plat_selectionne = Plat.objects.get(id=plat_id)
+		menu_plat = plat_selectionne.menu

@@ -3,3 +3,4 @@
 le serveur peut envoyer cette requête là:
 plat = Plat.objects.get(nom="tajine")
 menu = plat.menu.nom # ça va tourner le nom du menu au lequel il appartient.
+
