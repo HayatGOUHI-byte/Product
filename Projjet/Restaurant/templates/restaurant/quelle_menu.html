@@ -1,12 +1,12 @@
-<form method="post">
-	{% csrf_token %}
-	<label for="plat">choisir un plat menu</label>
-	<select name='plat' id='plat'>
-		{% for plat in plats %}
-		<option value='plat.id'>{{plat.nom}}</option>
-		{% end for%}
-	</select>
-	<button type="submit">Envoyer</button>
+<form method="POST">
+    {% csrf_token %}
+    <label for="plat">Choisir un plat :</label>
+    <select name="plat" id="plat">
+        {% for plat in plats %}
+            <option value="{{ plat.id }}">{{ plat.nom }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Envoyer</button>
 </form>
 
 {% if menu_plat %}

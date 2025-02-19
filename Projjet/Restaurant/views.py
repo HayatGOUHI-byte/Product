@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
-from .models import Menu
+from .models import Menu, Plat
 
 
 def index(request):
@@ -54,7 +54,7 @@ def afficher_plat(request):
 	menu_plat = None
 
 	if request.method=='POST':
-		plat_id = request.POST.get('plat')
+		plat_id = int(request.POST.get('plat'))
 		plat_selectionne = Plat.objects.get(id=plat_id)
 		menu_plat = plat_selectionne.menu
 	return render(request, 'restaurant/quelle_menu.html', {'plats': plats, 'menu_plat': menu_plat})
