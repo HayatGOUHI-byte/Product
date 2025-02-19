@@ -57,3 +57,4 @@ def afficher_plat(request):
 		plat_id = request.POST.get('plat')
 		plat_selectionne = Plat.objects.get(id=plat_id)
 		menu_plat = plat_selectionne.menu
+	return render(request, 'restaurant/quelle_menu.html', {'plats': plats, 'menu_plat': menu_plat})
