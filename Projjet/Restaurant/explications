@@ -1,0 +1,5 @@
+" imaginons le serveur connait le nom du plat , et il veut savoir sur son tablet le menu à quelle appartient pour le dire au client qui est devant lui sur table."
+
+le serveur peut envoyer cette requête là:
+plat = Plat.objects.get(nom="tajine")
+menu = plat.menu.nom # ça va tourner le nom du menu au lequel il appartient.
