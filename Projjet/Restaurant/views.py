@@ -58,3 +58,14 @@ def afficher_plat(request):
 		plat_selectionne = Plat.objects.get(id=plat_id)
 		menu_plat = plat_selectionne.menu
 	return render(request, 'restaurant/quelle_menu.html', {'plats': plats, 'menu_plat': menu_plat})
+
+
+
+
+
+
+
+def Client_Plat(request):
+	clients = Client.objects.all()
+	plats = Plat.objects.all()
+	return render(request,'restaurant/index.html', {'clients':clients,'plats':plats})
