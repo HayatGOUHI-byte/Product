@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
 from .models import Menu, Plat
+from .models import Client
 
 
 def index(request):
@@ -62,10 +63,11 @@ def afficher_plat(request):
 
 
 
-
-
-
 def Client_Plat(request):
 	clients = Client.objects.all()
 	plats = Plat.objects.all()
 	return render(request,'restaurant/index.html', {'clients':clients,'plats':plats})
+
+def detail(request,id):
+	plat = get_object_or_404(Plat, id=id)
+	return render(request, 'restaurant/index.html', {'plat':plat})

@@ -14,6 +14,7 @@ path('commande/<int:plat_id>/', views.passer_commande_view, name='passer_command
 path('client/<int:client_id>/commandes/', views.client_commandes_view, name='client_commandes'),
 path('disponible/', views.Menu_dispo, name='Menu_dispo'),
 path('quelle_menu/',views.afficher_plat, name='afficher_plat'),
-path('index', views.Client_Plat, name='Client_Plat'),
+path('index/', views.Client_Plat, name='Client_Plat'),
+path('details/<int:id>/', views.detail, name='detail'),
 
 ]

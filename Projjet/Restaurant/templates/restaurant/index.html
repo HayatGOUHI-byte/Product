@@ -1,1 +1,17 @@
 <p>On va tourner tous Nos clients et Nos plats </p>
+<p>Voilàa Nos Clients</p>
+{% for client in clients %}
+<li>{{client.nom}}</li>
+{% endfor %}
+
+<p>Voilàa Nos Plats</p>
+{% for plat in plats %}
+<li>{{plat.nom}} <a href="{% url 'detail' plat.id %}">détails</a></li>
+{% endfor %}
+
+
+{% if plat %}
+{% for plat in plat%}
+<li>{{plat.nom}}->{{plat.description}}->{{plat.prix}}</li>
+{% endfor %}
+{% endif %}
