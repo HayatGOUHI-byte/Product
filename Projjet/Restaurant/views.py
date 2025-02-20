@@ -3,7 +3,7 @@ from django.http import HttpResponse
 # Create your views here.
 from .models import Menu, Plat
 from .models import Client
-
+from django.shortcuts import render, get_object_or_404
 
 def index(request):
 	return HttpResponse("Welcome to Our Restaurant !")
