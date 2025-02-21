@@ -80,4 +80,4 @@ def addition(a,b):
 def JSON_Convert(request):
 	json_data = '{"nom":"Alice", "age":25}'
 	data = json.loads(json_data)
-	
+	print(data['nom'])
