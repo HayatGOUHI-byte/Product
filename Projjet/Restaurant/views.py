@@ -71,3 +71,7 @@ def Client_Plat(request):
 def detail(request,id):
 	plat = get_object_or_404(Plat, id=id)
 	return render(request, 'restaurant/index.html', {'plat':plat})
+
+
+def addition(a,b):
+	return a+b
