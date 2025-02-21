@@ -81,3 +81,7 @@ def JSON_Convert(request):
 	json_data = '{"nom":"Alice", "age":25}'
 	data = json.loads(json_data)
 	print(data['nom'])
+
+	python_dict = {"nom": "Bob", "age": 30}
+	json_string = json.dumps(python_dict, indent=4)
+	print(json_string)
