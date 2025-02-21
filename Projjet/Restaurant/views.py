@@ -3,6 +3,7 @@ from django.http import HttpResponse
 # Create your views here.
 from .models import Menu, Plat
 from .models import Client
+import json
 from django.shortcuts import render, get_object_or_404
 
 def index(request):
@@ -75,3 +76,8 @@ def detail(request,id):
 
 def addition(a,b):
 	return a+b
+
+def JSON_Convert(request):
+	json_data = '{"nom":"Alice", "age":25}'
+	data = json.loads(json_data)
+	
