@@ -89,3 +89,8 @@ def JSON_Convert(request):
 def convert_JSON(request):
 	jason_data = '{"nom":"Alice", "age":25}'
 	data = json.loads(jason_data)
+
+
+def Test_de_fonction(request):
+	chaine_de_caractere = 'this is my file'
+	print(chaine_de_caractere[1]
