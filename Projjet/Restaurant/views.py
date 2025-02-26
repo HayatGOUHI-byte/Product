@@ -110,3 +110,16 @@ def rechercher_commandes(request):
 
 	return render(request,'restaurant/rechercher_commandes.html', {'commandes':commandes, 'query':query})
 
+
+
+def rechercher_commande(request):
+	commande = None
+	query = request.GET.get('id_commande')
+
+	if query:
+		try:
+			commande = Commande.objects.get(id=query)
+		except Commande.DoesNotExist:
+			commande = None
+
+	return render(request, 'restaurant/rechercher_commande.html',{'commande':commande, 'query':query})

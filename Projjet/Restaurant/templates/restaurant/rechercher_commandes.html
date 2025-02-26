@@ -20,7 +20,9 @@
 			<li>{{ commande.id }} statut : {{commande.statut}} -> {{commande.client.nom}}</li>
 			{% endfor %}
 		</ul>
-		{% end if %}
+		   {% else %}
+            <p>Aucune commande trouvée pour ce plat.</p>
+		{% endif %}
 	{% endif %}
 
 </body>
