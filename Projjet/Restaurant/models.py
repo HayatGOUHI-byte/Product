@@ -37,3 +37,8 @@ class Commande(models.Model):
 
 
 #je veux savoir toutes les commandes qui sont associées à un plat X.
+#je veux savoir tous les plats qui sont associés à une commande X.
+
+
+
+#je veux que saisi le nom du plat et ORM affiche tous les commands qui en sont associé
