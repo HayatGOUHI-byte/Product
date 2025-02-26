@@ -16,5 +16,6 @@ path('disponible/', views.Menu_dispo, name='Menu_dispo'),
 path('quelle_menu/',views.afficher_plat, name='afficher_plat'),
 path('index/', views.Client_Plat, name='Client_Plat'),
 path('details/<int:id>/', views.detail, name='detail'),
+ path('recherche-commandes/', views.rechercher_commandes, name='rechercher_commandes'),
 
 ]
