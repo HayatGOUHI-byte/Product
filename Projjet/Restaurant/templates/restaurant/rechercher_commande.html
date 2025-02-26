@@ -1,0 +1,15 @@
+<form method="GET">
+	<label for="id_commande">ID de la commande : </label>
+	<input type="number" name="id_commande" required>
+	<button type="submit" >Rechercher </button>
+</form>
+
+{% if query %}
+
+	{% if commande %}
+	<p>commande {{commande.id}} -> client : {{commande.client.nom}}</p>
+	{% else %}
+	<p>Aucune commande trouvé avec cet ID</p>
+	{% endif %}
+	
+{% endif %}
