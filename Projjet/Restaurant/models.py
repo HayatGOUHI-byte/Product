@@ -34,3 +34,6 @@ class Commande(models.Model):
 
 	def __str__(self):
 		return f"commande {self.id} pour {self.client.nom}"
+
+
+#je veux savoir toutes les commandes qui sont associées à un plat X.

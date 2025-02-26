@@ -93,4 +93,4 @@ def convert_JSON(request):
 
 def Test_de_fonction(request):
 	chaine_de_caractere = 'this is my file'
-	print(chaine_de_caractere[1]
+	print(chaine_de_caractere[1])
