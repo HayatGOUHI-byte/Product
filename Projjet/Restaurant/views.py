@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from .models import Menu, Plat
 from .models import Client
 import json
+from .models import Commande
 from django.shortcuts import render, get_object_or_404
 
 def index(request):
@@ -94,3 +95,18 @@ def convert_JSON(request):
 def Test_de_fonction(request):
 	chaine_de_caractere = 'this is my file'
 	print(chaine_de_caractere[1])
+
+#on va récupérer les commandes associés à un plat X
+
+def rechercher_commandes(request):
+	commandes=None
+	query = request.GET.get('nom_plat')
+	if query:
+		try:
+			plat = Plat.objects.get(nom__iexact=query)
+			commandes = plat.commandes.all()
+		except Plat.DoesNotExist:
+			commandes = []
+
+	return render(request,'restaurant/rechercher_commandes.html', {'commandes':commandes, 'query':query})
+

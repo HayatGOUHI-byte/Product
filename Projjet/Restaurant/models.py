@@ -42,3 +42,4 @@ class Commande(models.Model):
 
 
 #je veux que saisi le nom du plat et ORM affiche tous les commands qui en sont associé
+

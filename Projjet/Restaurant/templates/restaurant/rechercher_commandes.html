@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Rechercher Commandes </title>
+</head>
+<body>
+	<h1>Rechercher les commandes d'un plat </h1>
+	<form method="GET">
+		<label for="nom_plat">Nom du plat</label>
+		<input type="text" name="nom_plat" id="nom_plat" required>
+		<button type="submit" >Rechercher</button>
+	</form>
+
+	{% if query %}
+		{% if commandes %}
+		<ul>
+			{% for commande in commandes %}
+			<li>{{ commande.id }} statut : {{commande.statut}} -> {{commande.client.nom}}</li>
+			{% endfor %}
+		</ul>
+		{% end if %}
+	{% endif %}
+
+</body>
+</html>
