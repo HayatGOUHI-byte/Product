@@ -1,13 +1,61 @@
-div[name="section-1"] {
+.section-1 {
     display: flex;
     flex-direction: row; /* Les empiler verticalement */
-    gap: 200px; /* Ajouter de l’espace entre eux */
+    gap: 250px; /* Ajouter de l’espace entre eux */
 }
 
 body {
 	background-color:gray;
+	display:flex;
+	flex-direction:column;
+	gap:20px;
+	 margin-right: 10px; /* Marge à droite */
+    margin-left: 10px;  /* Marge à gauche */
 }
 
-#first-page {
+.first-page {
+	display: flex;
+	flex-direction: row;
 	gap:20px;
+}
+button{
+	background-color: pink;
+}
+
+.section-2 {
+	display:flex;
+	flex-direction:column;
+	gap:20px;
+	margin-right:250px;
+}
+
+img {
+	width:600px;
+	height:300px;
+}
+.cards{
+	display:flex;
+	flex-direction:row;
+	gap:50px;
+}
+
+.global-section{
+	display:flex;
+	flex-direction:column;
+	gap:10px;
+}
+
+.sub-image{
+	width: 5px;  /* Largeur de l'image */
+    height: 5px;
+
+}
+
+.element-1, .element-1, .element-1{
+display:flex;
+	flex-direction:column;
+	gap:10px;
+}
+.sub-image, .sub-title, .sub-paragraphe {
+    margin-bottom: 10px; /* Ajouter un espace entre l'image et les autres éléments */
 }
