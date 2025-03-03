@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">AHDIGITAL<br>AUTOMATION</div>
+            <div class="location">SAAS<br>AGADIR, AGADIR</div>
+            <input type="text" class="search-bar" placeholder="Search (ctrl K)">
+            <nav class="nav-menu">
+                <a href="#" class="active"><i class="fas fa-th"></i> Dashboard</a>
+                <a href="#"><i class="fas fa-comments"></i> Conversations</a>
+                <a href="#"><i class="fas fa-calendar"></i> Calendars</a>
+                <a href="#"><i class="fas fa-address-book"></i> Contacts</a>
+                <a href="#"><i class="fas fa-chart-line"></i> Opportunities</a>
+                <a href="#"><i class="fas fa-credit-card"></i> Payments</a>
+                <a href="#"><i class="fas fa-bullhorn"></i> Marketing</a>
+                <a href="#"><i class="fas fa-cogs"></i> Automation</a>
+                <a href="#"><i class="fas fa-globe"></i> Sites</a>
+                <a href="#"><i class="fas fa-users"></i> Memberships</a>
+                <a href="#"><i class="fas fa-cog"></i> Settings</a>
+            </nav>
+        </aside>
+
+        <!-- Main Dashboard -->
+        <main class="dashboard">
+            <header>
+                <h1>Dashboard</h1>
+                <div class="date-picker">
+                    <input type="date" value="2025-01-31"> -
+                    <input type="date" value="2025-03-02">
+                </div>
+            </header>
+
+            <section class="dashboard-cards">
+                <div class="card">
+                    <h3>Opportunity Status</h3>
+                    <div class="card-content">
+                        <i class="fas fa-search"></i>
+                        <p>No Data Found</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Opportunity Value</h3>
+                    <div class="card-content">
+                        <i class="fas fa-search"></i>
+                        <p>No Data Found</p>
+                    </div>
+                </div>
+
+                <div class="card conversion-rate">
+                    <h3>Conversion Rate</h3>
+                    <div class="rate">MADO</div>
+                    <p class="comparison">⬆️ 0% vs Last 31 Days</p>
+                    <div class="circle-chart">
+                        <div class="circle">
+                            <span>0%</span>
+                        </div>
+                    </div>
+                    <p>Won revenue<br><strong>MADO</strong></p>
+                </div>
+            </section>
+
+            <section class="bottom-section">
+                <div class="card">
+                    <h3>Funnel</h3>
+                    <select>
+                        <option>No pipeline available</option>
+                    </select>
+                </div>
+
+                <div class="card">
+                    <h3>Stage Distribution</h3>
+                    <select>
+                        <option>No pipeline available</option>
+                    </select>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
