@@ -4,62 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacts</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="contact.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Sidebar -->
+    <div class="app-container">
         <aside class="sidebar">
-            <div class="logo">AHDIGITAL</div>
-            <nav>
-                <a href="#" class="menu-item"><i class="fas fa-home"></i> Launchpad</a>
-                <a href="#" class="menu-item"><i class="fas fa-chart-line"></i> Dashboard</a>
-                <a href="#" class="menu-item"><i class="fas fa-comments"></i> Conversations</a>
-                <a href="#" class="menu-item"><i class="fas fa-calendar-alt"></i> Calendars</a>
-                <a href="#" class="menu-item active"><i class="fas fa-address-book"></i> Contacts</a>
-                <a href="#" class="menu-item"><i class="fas fa-handshake"></i> Opportunities</a>
-                <a href="#" class="menu-item"><i class="fas fa-credit-card"></i> Payments</a>
-                <a href="#" class="menu-item"><i class="fas fa-cogs"></i> Settings</a>
+            <div class="logo">AHDIGITAL AUTOMATION</div>
+            <div class="location">SAAS - AGADIR, AGADIR</div>
+            <input type="text" class="search-bar" placeholder="Search">
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="menu-item"><i class="fas fa-columns"></i> Dashboard</a>
+                <a href="conversation.html" class="menu-item"><i class="fas fa-comments"></i> Conversations</a>
+                <a href="calendrier.html" class="menu-item"><i class="fas fa-calendar-alt"></i> Calendars</a>
+                <a href="contact.html" class="menu-item active"><i class="fas fa-user"></i> Contacts</a>
+                <a href="#" class="menu-item"><i class="fas fa-dollar-sign"></i> Payments</a>
             </nav>
         </aside>
 
-        <!-- Main Content -->
-        <main class="main-content">
+        <main class="dashboard">
             <header>
                 <h1>Contacts</h1>
-                <nav class="sub-menu">
-                    <a href="#">Smart Lists</a>
+                <nav class="tabs">
+                    <a href="#" class="active">Smart Lists</a>
                     <a href="#">Bulk Actions</a>
                     <a href="#">Restore</a>
                     <a href="#">Tasks</a>
                     <a href="#">Companies</a>
-                    <a href="#">Manage Smart Lists</a>
                 </nav>
             </header>
-
-            <div class="filters">
-                <button><i class="fas fa-plus"></i></button>
-                <button><i class="fas fa-tags"></i></button>
-                <button><i class="fas fa-trash"></i></button>
-                <input type="text" placeholder="Quick search">
-                <button class="filter-btn"><i class="fas fa-filter"></i> More Filters</button>
-            </div>
-
-            <div class="contacts-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Columns</th>
-                            <th>Quick search</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td colspan="2" class="empty">No records found</td>
-                        </tr>
-                    </tbody>
-                </table>
+            
+            <div class="content">
+                <div class="toolbar">
+                    <button><i class="fas fa-plus"></i></button>
+                    <button><i class="fas fa-envelope"></i></button>
+                    <button><i class="fas fa-trash"></i></button>
+                    <button><i class="fas fa-filter"></i> More Filters</button>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Columns</th>
+                                <th>Quick Search</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="2" class="no-records">No records found</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </main>
     </div>
