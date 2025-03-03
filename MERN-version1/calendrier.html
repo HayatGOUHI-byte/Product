@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conversations</title>
-    <link rel="stylesheet" href="conversation.css">
+    <title>Calendrier</title>
+    <link rel="stylesheet" href="calendrier.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -18,8 +18,8 @@
             <nav class="nav-menu">
                 <a href="#"><i class="fas fa-th"></i> Launchpad</a>
                 <a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-                <a href="#" class="active"><i class="fas fa-comments"></i> Conversations</a>
-                <a href="#"><i class="fas fa-calendar"></i> Calendars</a>
+                <a href="#"><i class="fas fa-comments"></i> Conversations</a>
+                <a href="#" class="active"><i class="fas fa-calendar"></i> Calendars</a>
                 <a href="#"><i class="fas fa-user"></i> Contacts</a>
                 <a href="#"><i class="fas fa-chart-line"></i> Opportunities</a>
                 <a href="#"><i class="fas fa-credit-card"></i> Payments</a>
@@ -34,33 +34,21 @@
         <!-- Contenu principal -->
         <main class="dashboard">
             <header>
-                <h1>Conversations</h1>
+                <h1>Calendars</h1>
                 <nav class="tabs">
-                    <a href="#" class="active">Conversations</a>
-                    <a href="#">Manual Actions</a>
-                    <a href="#">Snippets</a>
-                    <a href="#">Trigger Links</a>
+                    <a href="#" class="active">Calendars</a>
+                    <a href="#">Appointments</a>
+                    <a href="#">Calendar Settings</a>
                 </nav>
             </header>
 
-            <!-- Zone des conversations -->
-            <div class="conversations-container">
-                <div class="conversations-list">
-                    <input type="text" class="search-convo" placeholder="Search">
-                    <p class="no-results">0 RESULTS</p>
-                </div>
-                <div class="chat-window">
-                    <div class="empty-message">
-                        <i class="fas fa-search"></i>
-                        <p>No conversation selected</p>
-                    </div>
-                </div>
-                <div class="contact-info">
-                    <div class="empty-message">
-                        <i class="fas fa-search"></i>
-                        <p>No contact selected</p>
-                    </div>
-                </div>
+            <!-- Message central -->
+            <div class="calendar-container">
+                <i class="fas fa-calendar-times calendar-icon"></i>
+
+                <h2>No calendar found!</h2>
+                <p>Please create a new one or ask the admin to assign you to an existing calendar</p>
+                <button class="btn-settings">Go to calendar settings</button>
             </div>
         </main>
     </div>

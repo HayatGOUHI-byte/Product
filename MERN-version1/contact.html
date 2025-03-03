@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">AHDIGITAL</div>
+            <nav>
+                <a href="#" class="menu-item"><i class="fas fa-home"></i> Launchpad</a>
+                <a href="#" class="menu-item"><i class="fas fa-chart-line"></i> Dashboard</a>
+                <a href="#" class="menu-item"><i class="fas fa-comments"></i> Conversations</a>
+                <a href="#" class="menu-item"><i class="fas fa-calendar-alt"></i> Calendars</a>
+                <a href="#" class="menu-item active"><i class="fas fa-address-book"></i> Contacts</a>
+                <a href="#" class="menu-item"><i class="fas fa-handshake"></i> Opportunities</a>
+                <a href="#" class="menu-item"><i class="fas fa-credit-card"></i> Payments</a>
+                <a href="#" class="menu-item"><i class="fas fa-cogs"></i> Settings</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <h1>Contacts</h1>
+                <nav class="sub-menu">
+                    <a href="#">Smart Lists</a>
+                    <a href="#">Bulk Actions</a>
+                    <a href="#">Restore</a>
+                    <a href="#">Tasks</a>
+                    <a href="#">Companies</a>
+                    <a href="#">Manage Smart Lists</a>
+                </nav>
+            </header>
+
+            <div class="filters">
+                <button><i class="fas fa-plus"></i></button>
+                <button><i class="fas fa-tags"></i></button>
+                <button><i class="fas fa-trash"></i></button>
+                <input type="text" placeholder="Quick search">
+                <button class="filter-btn"><i class="fas fa-filter"></i> More Filters</button>
+            </div>
+
+            <div class="contacts-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Columns</th>
+                            <th>Quick search</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="2" class="empty">No records found</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

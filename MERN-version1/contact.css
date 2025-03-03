@@ -1,0 +1,146 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    background-color: #f4f5f7;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #18202c;
+    color: white;
+    padding: 20px 15px;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.location {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 4px;
+}
+
+.nav-menu a {
+    color: #c0c0c0;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px 5px;
+    margin: 5px 0;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.nav-menu a.active,
+.nav-menu a:hover {
+    background-color: #2a3c54;
+    color: white;
+}
+
+.nav-menu i {
+    margin-right: 10px;
+}
+
+/* Main Dashboard */
+.dashboard {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f4f5f7;
+    overflow-y: auto;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.sub-menu a {
+    margin-right: 15px;
+    color: #4c8bf5;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.sub-menu a:hover {
+    text-decoration: underline;
+}
+
+/* Filters */
+.filters {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filters button {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.filters input {
+    flex-grow: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.filter-btn {
+    background-color: #4c8bf5;
+    color: white;
+    border: none;
+}
+
+/* Contacts Table */
+.contacts-table {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #f4f5f7;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.empty {
+    text-align: center;
+    color: gray;
+}
